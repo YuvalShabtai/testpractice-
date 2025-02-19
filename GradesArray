@@ -1,0 +1,48 @@
+        public static double[] GradesArray(double[] arr)
+        {
+            double[] newArr = new double[arr.Length];
+            for(int i =0; i<arr.Length;i++)
+            {
+                newArr[i] = arr[i] + arr[i]*10/100;
+                if (newArr[i] > 100)
+                {
+                    newArr[i] = 100;
+                }
+            }
+           
+            return newArr;
+        }
+
+        public static int[] GetArrayLength(int number)
+        {
+            int[] arr = new int[number];
+            for(int i=0; i<arr.Length; i++)
+            {
+                Console.WriteLine("please enter a number");
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            return arr;
+        }
+
+        public static int[] PrintGrades(int[] arr)
+        {
+            for(int i =0; i<arr.Length ; i++)
+            {
+                Console.Write($"{arr[i]}, ");
+            }
+            return arr;
+        }
+
+        static void Main(string[] args)
+            {
+
+            double[] numbers = { 50, 60, 70, 80, 90,100};
+
+            double[] result = GradesArray(numbers);
+            Console.WriteLine("the array is: " + string.Join(", ", result));
+
+            int[] result2 = GetArrayLength(5);
+
+            int[] result3 = PrintGrades(result2);
+
+        }
