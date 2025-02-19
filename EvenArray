@@ -1,0 +1,25 @@
+ public static int[] EvenArray(int[] arr, int[] arr2)
+ {
+     int maxLength = Math.Max(arr.Length, arr2.Length);
+     int minLength = Math.Min(arr.Length, arr2.Length);
+     int[] newArr = new int[maxLength];
+
+     for (int i = 0; i < minLength ; i++)
+     {
+         newArr[i] = arr[i] + arr2[i];
+     }
+
+     for (int i = minLength; i < maxLength; i++)
+     {
+         if(arr.Length > arr2.Length)
+         {
+             newArr[i] = arr[i]*2;
+         }
+
+         else
+         {
+             newArr[i] = arr2[i]*2;
+         }
+     }
+     return newArr;
+ }
