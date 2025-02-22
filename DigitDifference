@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Arr.testPractice
+{
+    internal class Program
+    {
+        public static int DigitDifference(int num, int index)
+        {
+            int counter = 0;
+            int digit = 0;
+
+            int numberInindex = 0;
+            int nextNUmber = 0;
+
+            int difference = 0;
+
+            while (num > 0)
+            {
+                digit = num%10;
+                counter++;
+
+                if(counter == index)
+                {
+                    numberInindex = digit;
+                }
+
+                if(counter == index+1)
+                {
+                    nextNUmber = digit;
+                    break;
+                }
+                
+                num /= 10;              
+            }
+            difference = numberInindex - nextNUmber;
+            if(index >= counter)
+            {
+                return 0;
+            }
+            return difference;
+
+        }
+
+        static void Main(string[] args)
+        {
+            int result = DigitDifference(2146,1);
+            Console.WriteLine(result);
+        }
+    }
+}
