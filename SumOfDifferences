@@ -1,0 +1,29 @@
+        public static int SumOfDifferences(int num)
+        {
+            int sum = 0;
+            int previousDigit = -1;
+            int digit = 0;
+
+            while (num > 0)
+            {
+                digit = num % 10; 
+
+                if (previousDigit != -1) 
+                {
+                    sum += Math.Abs(digit - previousDigit);
+                }
+
+                previousDigit = digit; 
+                num /= 10; 
+            }
+
+            return sum;
+        }
+
+        static void Main(string[] args)
+        {
+            int result = SumOfDifferences(4321);
+            Console.WriteLine(result);
+        }
+    }
+}
