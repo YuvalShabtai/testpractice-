@@ -1,0 +1,43 @@
+        public static int CountThriceNums(int[] arr)
+        {
+            int arrayThriceCounter = 0;
+
+            for (int i  = 0; i < arr.Length; i++)
+            {
+                int previousDigit = -1;
+                bool isThrice = true;
+                int num = arr[i];
+                while (num > 0)
+                {
+                    int digit = num % 10; // קבלת הספרה הימנית
+                    num /= 10; // הסרת הספרה הימנית
+
+                    if (previousDigit != -1) // בדיקה אם יש ספרה קודמת
+                    {
+                        // אם ההפרש בין הספרות הוא 3 או יותר, החזר false
+                        if (Math.Abs(digit - previousDigit) >= 3)
+                        {
+                            isThrice = false;
+                            break;
+                        }
+                    }
+                    previousDigit = digit; // עדכון הספרה הקודמת
+                }
+
+                if(isThrice)
+                {
+                    arrayThriceCounter++;
+                }
+            }
+
+            return arrayThriceCounter; 
+
+        }
+        static void Main(string[] args)
+        {
+            int[] result = { 1135, 111, 35768, 167, 976, 19 };
+            int count = CountThriceNums(result);
+            Console.WriteLine($"Number of thrice numbers: {count}");
+        }
+    }
+}
