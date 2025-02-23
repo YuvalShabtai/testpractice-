@@ -1,0 +1,36 @@
+        public static bool IsCyclic(int num)
+        {
+            while(num > 0)
+            {
+                int digit = num % 10;
+                int nextDigit = num / 10 % 10;
+                if(digit == nextDigit)
+                {
+                    return true;
+                }
+                num /= 10;  
+            }
+            return false;
+        }
+
+        public static int CountCyclicNums(int[] arr)
+        {
+            int counter = 0;
+            for(int i =0; i < arr.Length; i++)
+            {
+                if (IsCyclic(arr[i]))
+                {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+        static void Main(string[] args)
+        {
+            int[] mainArr = { 1234, 1123, 4566, 56, 66777 };
+            int result = CountCyclicNums(mainArr);
+            Console.WriteLine(result);
+
+        }
+    }
+}
