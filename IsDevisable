@@ -1,0 +1,24 @@
+    public static bool IsDevisable(int num , int divisor)
+    {
+        return num % divisor == 0;
+    }
+
+    public static bool HasNoRemainder(int[] arr, int divisor)
+    {
+        for (int i = 0; i < arr.Length-1; i++)
+        {
+            if (arr[i] % divisor != arr[i+1] % divisor)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    static void Main(string[] args)
+    {
+        int[] mainArr = {2,4,6,8,10,12,14};
+        bool result = HasNoRemainder(mainArr, 2);
+        Console.WriteLine(result);
+
+    }
+}
